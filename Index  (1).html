@@ -1,0 +1,118 @@
+
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abi ❤️ Tawhi</title>
+
+<style>
+body{
+    margin:0;
+    padding:0;
+    font-family: 'Segoe UI', sans-serif;
+    height:100vh;
+    overflow:hidden;
+    background: linear-gradient(135deg,#8B0000,#ff4d6d,#ff8fa3);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:white;
+}
+
+/* Hearts background */
+.hearts{
+    position:fixed;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    z-index:0;
+    overflow:hidden;
+}
+
+.heart{
+    position:absolute;
+    bottom:-50px;
+    font-size:20px;
+    animation: floatUp 8s linear infinite;
+    opacity:0.7;
+}
+
+@keyframes floatUp{
+    0%{transform:translateY(0) scale(1); opacity:0.7;}
+    100%{transform:translateY(-110vh) scale(1.5); opacity:0;}
+}
+
+/* Glass card */
+.card{
+    position:relative;
+    z-index:1;
+    background: rgba(255,255,255,0.15);
+    padding:40px;
+    border-radius:20px;
+    backdrop-filter: blur(10px);
+    box-shadow:0 0 30px rgba(0,0,0,0.3);
+}
+
+h1{
+    font-size:30px;
+}
+
+button{
+    margin-top:20px;
+    padding:15px 40px;
+    border:none;
+    border-radius:50px;
+    font-size:18px;
+    cursor:pointer;
+    background:#ff1744;
+    color:white;
+    box-shadow:0 0 15px #ff1744;
+    transition:0.3s;
+}
+
+button:hover{
+    transform:scale(1.1);
+    background:#ff4569;
+}
+</style>
+</head>
+
+<body>
+
+<div class="hearts" id="hearts"></div>
+
+<div class="card">
+    <h1>Abi ❤️ Will You Be Mine Forever?</h1>
+    <button onclick="goLove()">Yes ❤️</button>
+</div>
+
+<script>
+function goLove(){
+    window.location.href="love.html";
+}
+
+/* Create hearts */
+const heartContainer=document.getElementById("hearts");
+
+setInterval(()=>{
+    const heart=document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML="❤";
+
+    const colors=["red","green"];
+    heart.style.color=colors[Math.floor(Math.random()*2)];
+    heart.style.left=Math.random()*100+"vw";
+    heart.style.fontSize=(15+Math.random()*20)+"px";
+
+    heartContainer.appendChild(heart);
+
+    setTimeout(()=>{
+        heart.remove();
+    },8000);
+
+},400);
+</script>
+</body>
+</html> 
